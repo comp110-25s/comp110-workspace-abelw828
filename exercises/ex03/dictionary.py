@@ -11,17 +11,14 @@ def invert(input: dict[str, str]) -> dict[str, str]:
     return output
 
 
-def count(item: list[str]) -> dict[str, int]:
+def count(items: list[str]) -> dict[str, int]:
     """Counts the number of times each string in a list is present"""
     result: dict[str, int] = {}
-    idx: int = 0
-    if idx < len(item):
-        k: str = item[idx]
-        if k in result:
-            result[k] += 1
+    for item in items:
+        if item in result:
+            result[item] += 1
         else:
-            result[k] = 1
-        idx += 1
+            result[item] = 1
     return result
 
 
@@ -44,12 +41,10 @@ def favorite_color(group: dict[str, str]) -> str:
 def bin_len(words: list[str]) -> dict[int, set[str]]:
     """Sorts words into a dictonary based on lengths of words"""
     result: dict[int, set[str]] = {}
-    idx: int = 0
-    while idx < len(words):
-        length: int = len(words[idx])
+    for word in words:
+        length: int = len(word)
         if length in result:
-            result[length].add(words[idx])
+            result[length].add(word)
         else:
-            result[length] = set(words[idx])
-        idx += 1
+            result[length] = {word}
     return result
