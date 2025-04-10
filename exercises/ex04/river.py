@@ -39,8 +39,10 @@ class River:
     def bears_eating(self):
         if len(self.fish) >= 5:
             for bear in self.bears:
+                idx: int = 0
                 self.remove_fish(3)
-                Bear.eat(num_fish=3)  # being weird, need to rewrite
+                self.bears[idx].eat(num_fish=3)
+                idx += 1
 
     def check_hunger(self):
         bear_copy: list[Bear] = self.bears
